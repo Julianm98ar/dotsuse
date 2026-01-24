@@ -61,6 +61,7 @@ sudo zypper install -y \
   curl \
   wget \
   unzip \
+  sddm \
   fastfetch
 
 echo "✅ Paquetes instalados"
@@ -128,6 +129,24 @@ Name=Hyprland
 Exec=Hyprland
 Type=Application
 EOF
+
+# -------------------------------------------------
+# Display manager (openSUSE way)
+# -------------------------------------------------
+echo
+echo "🖥 Configurando display manager..."
+
+
+sudo systemctl set-default graphical.target
+sudo systemctl enable display-manager
+
+
+echo
+echo "========================================="
+echo "✅ Instalación completada"
+echo "➡ Reinicia el sistema"
+echo "➡ Selecciona Hyprland en SDDM"
+echo "========================================="
 
 # -----------------------------
 # Finish

@@ -50,7 +50,7 @@ sudo zypper install -y \
   wireplumber \
   xdg-desktop-portal \
   xdg-desktop-portal-hyprland \
-  polkit-kde-agent-1 \
+  polkit-kde-agent-6 \
   thunar \
   thunar-volman \
   gvfs \

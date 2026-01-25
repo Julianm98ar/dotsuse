@@ -11,7 +11,6 @@ pamixer                                                # pulseaudio cli mixer
 networkmanager                                         # network manager
 NetworkManager-applet                                  # network manager system tray utility
 bluez                                                  # bluetooth protocol stack
-bluez-tools                                            # bluetooth utility cli - opensuse
 blueman                                                # bluetooth manager gui
 brightnessctl                                          # screen brightness control
 playerctl                                              # media controls
@@ -19,9 +18,9 @@ udiskie                                                # manage removable media
 
 # --------------------------------------------------- // Display Manager
 sddm                                                   # display manager for KDE plasma
-libQt5QuickControls2-5                                 # for sddm theme ui elements
+libqt5-qtquickcontrols2                                 # for sddm theme ui elements
 ibQt5QuickControls2-5                                  # for sddm theme ui elements
-libQt5GraphicalEffects5                                # for sddm theme effects
+libqt5-qtgraphicaleffects                                # for sddm theme effects
 
 # --------------------------------------------------- // Window Manager
 hyprland                                               # wlroots-based wayland compositor
@@ -45,14 +44,14 @@ xdg-desktop-portal-hyprland                            # xdg desktop portal for 
 xdg-desktop-portal-gtk                                 # file picker and dbus  integration
 xdg-user-dirs                                          # Manage user directories like ~/Desktop and ~/Music
 # pacman-contrib                                       # for system update check - no opensuse
-parallel                                               # for parallel processing
+gnu_parallel                                           # for parallel processing
 jq                                                     # for json processing
 imagemagick                                            # for image processing
 libqt5-qtimageformats                                  # for dolphin image thumbnails
 ffmpegthumbs                                           # for dolphin video thumbnails
-kde-cli-tools5                                         # for dolphin file type defaults
+kde-cli-tools6                                         # for dolphin file type defaults
 libnotify                                              # for notifications
-noto-coloremoji-fonts                                  # emoji font
+google-noto-coloremoji-fonts                           # emoji font
 
 # --------------------------------------------------- // Theming
 nwg-look                                               # gtk configuration tool

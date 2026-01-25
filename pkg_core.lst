@@ -19,7 +19,7 @@ udiskie                                                # manage removable media
 # --------------------------------------------------- // Display Manager
 sddm                                                   # display manager for KDE plasma
 libqt5-qtquickcontrols2                                 # for sddm theme ui elements
-ibQt5QuickControls2-5                                  # for sddm theme ui elements
+libQt5QuickControls2-5                                  # for sddm theme ui elements
 libqt5-qtgraphicaleffects                                # for sddm theme effects
 
 # --------------------------------------------------- // Window Manager

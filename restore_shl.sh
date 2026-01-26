@@ -98,11 +98,14 @@ if [[ "$(grep "/${USER}:" /etc/passwd | awk -F '/' '{print $NF}')" != "${myShell
         print_log -warn "SHELL" "${myShell} not found in PATH, skipping shell change"
     else
         if [ ${flg_DryRun} -eq 0 ]; then
-            # Try to change shell with timeout to avoid hanging on password prompt
-            timeout 2 chsh -s "${shell_path}" </dev/null 2>&1 || {
-                print_log -warn "SHELL" "Failed to change shell automatically (may require manual intervention)"
-                print_log -info "SHELL" "To change shell manually, run: chsh -s ${shell_path}"
-            }
+            # Check if running interactively
+            if [ -t 0 ]; then
+                # Interactive: try to change shell
+                chsh -s "${shell_path}" || print_log -warn "SHELL" "Failed to change shell"
+            else
+                # Non-interactive: skip and inform user
+                print_log -info "SHELL" "To change shell to ${myShell}, run manually: chsh -s ${shell_path}"
+            fi
         fi
     fi
 else

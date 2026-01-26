@@ -97,7 +97,13 @@ if [[ "$(grep "/${USER}:" /etc/passwd | awk -F '/' '{print $NF}')" != "${myShell
     if [ -z "$shell_path" ]; then
         print_log -warn "SHELL" "${myShell} not found in PATH, skipping shell change"
     else
-        [ ${flg_DryRun} -eq 1 ] || chsh -s "${shell_path}"
+        if [ ${flg_DryRun} -eq 0 ]; then
+            # Try to change shell with timeout to avoid hanging on password prompt
+            timeout 2 chsh -s "${shell_path}" </dev/null 2>&1 || {
+                print_log -warn "SHELL" "Failed to change shell automatically (may require manual intervention)"
+                print_log -info "SHELL" "To change shell manually, run: chsh -s ${shell_path}"
+            }
+        fi
     fi
 else
     print_log -sec "SHELL" -stat "exist" "${myShell} is already set as shell..."

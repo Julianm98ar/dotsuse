@@ -49,23 +49,31 @@ while IFS='|' read -r service context command || [ -n "$service" ]; do
         # Parse command into array to handle spaces properly
         read -ra cmd_array <<< "$command"
         
-        print_log -y "[exec] " "Service ${service} (${context}): $command"
+        # openSUSE uses display-manager.service as a generic alias
+        svc_name="${service}"
+        if [[ "${svc_name}" == "sddm" ]] && [[ "${DISTRO_ID:-}" == opensuse* ]]; then
+            if [[ "${command}" == *enable* ]]; then
+                svc_name="display-manager"
+            fi
+        fi
+
+        print_log -y "[exec] " "Service ${svc_name} (${context}): $command"
         
         if [ "$flg_DryRun" -ne 1 ]; then
             if [ "$context" = "user" ] ; then
             if [[ -n "${DBUS_SESSION_BUS_ADDRESS}" ]] && [[ -n $XDG_RUNTIME_DIR ]];then
-                systemctl --user "${cmd_array[@]}" "${service}.service" 2>/dev/null || print_log -warn "Service" "${service} (user): Failed to enable (may already exist)"
+                systemctl --user "${cmd_array[@]}" "${svc_name}.service" 2>/dev/null || print_log -warn "Service" "${svc_name} (user): Failed to enable (may already exist)"
             else 
              print_log -sec "services" -stat "error" "DBUS_SESSION_BUS_ADDRESS or XDG_RUNTIME_DIR not set for user service" -y " skipping"
             fi
             else
-                sudo systemctl "${cmd_array[@]}" "${service}.service" 2>/dev/null || print_log -warn "Service" "${service}: Failed to enable (may already exist or conflict)"
+                sudo systemctl "${cmd_array[@]}" "${svc_name}.service" 2>/dev/null || print_log -warn "Service" "${svc_name}: Failed to enable (may already exist or conflict)"
             fi
         else
             if [ "$context" = "user" ]; then
-                print_log -c "[dry-run] " "systemctl --user ${cmd_array[*]} ${service}.service"
+                print_log -c "[dry-run] " "systemctl --user ${cmd_array[*]} ${svc_name}.service"
             else
-                print_log -c "[dry-run] " "sudo systemctl ${cmd_array[*]} ${service}.service"
+                print_log -c "[dry-run] " "sudo systemctl ${cmd_array[*]} ${svc_name}.service"
             fi
         fi
     fi

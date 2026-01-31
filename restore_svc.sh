@@ -13,6 +13,11 @@ fi
 
 flg_DryRun=${flg_DryRun:-0}
 
+# Ensure distro is detected
+if [ -z "${DISTRO_ID}" ]; then
+    detect_distro
+fi
+
 # Legacy function for backward compatibility with old system_ctl.lst format
 handle_legacy_service() {
     local serviceChk="$1"

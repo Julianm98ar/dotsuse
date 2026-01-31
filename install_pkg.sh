@@ -15,6 +15,26 @@ fi
 flg_DryRun=${flg_DryRun:-0}
 export log_section="package"
 
+# Determine which package list to use based on distro
+listPkg="${1:-}"
+if [ -z "$listPkg" ]; then
+    case "${DISTRO_ID}" in
+    opensuse | opensuse-leap | opensuse-tumbleweed)
+        # Use openSUSE-specific package list if it exists
+        if [ -f "${scrDir}/pkg_core.opensuse.lst" ]; then
+            listPkg="${scrDir}/pkg_core.opensuse.lst"
+            print_log -sec "PKG" -stat "detected" "Using openSUSE package list"
+        else
+            listPkg="${scrDir}/pkg_core.lst"
+        fi
+        ;;
+    *)
+        # Default to Arch package list
+        listPkg="${scrDir}/pkg_core.lst"
+        ;;
+    esac
+fi
+
 # For Arch-based distributions, setup AUR helper
 # For openSUSE, OBS is integrated into zypper
 case "${DISTRO_ID}" in
@@ -27,8 +47,6 @@ opensuse | opensuse-leap | opensuse-tumbleweed)
     print_log -sec "OBS" -stat "integrated" "openSUSE OBS is handled by zypper"
     ;;
 esac
-
-listPkg="${1:-"${scrDir}/pkg_core.lst"}"
 repoPkg=()
 aurhPkg=()
 ofs=$IFS

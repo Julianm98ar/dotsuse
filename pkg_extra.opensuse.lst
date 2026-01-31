@@ -1,0 +1,69 @@
+# ================================================
+# HyDE Extra/Optional Packages - openSUSE
+# ================================================
+# Format: package_name  # comment
+# Optional packages for enhanced HyDE experience on openSUSE
+
+# --------------------------------------------------- // System Utilities
+wttrbar                                                # for weather in waybar
+python311-requests                                      # script dependency (openSUSE versioned)
+ddcui                                                  # GUI to control brightness for external monitors
+# power-profiles-daemon                                # for managing power profiles from waybar (may vary)
+
+# --------------------------------------------------- // Misc Tools
+xdg-desktop-portal-gtk                                 # xdg desktop portal using gtk (fallback)
+wf-recorder                                            # Screen recorder for wlroots-based compositors
+# wl-screenrec                                         # High performance hardware accelerated (NO NVIDIA support)
+# zbar                                                  # Bar/QR code scanner (check availability)
+
+# --------------------------------------------------- // Gaming
+steam                                                  # gaming platform
+gamemode                                               # daemon and library for game optimizations
+mangohud                                               # system performance overlay
+# gamescope                                            # micro-compositor for gaming (may not be available)
+# lutris                                               # Lutris gaming platform (check availability)
+
+# --------------------------------------------------- // Music
+cava                                                   # audio visualizer
+spotify                                                # proprietary music streaming service (flatpak)
+spicetify-cli                                          # cli to customize spotify client (may need npm)
+
+# --------------------------------------------------- // Text Editors
+neovim                                                 # vim-based text editor (optional)
+
+# --------------------------------------------------- // Shell Enhancement - zsh
+# oh-my-zsh (git repo, not zypper)                    # Optional plugin manager for zsh
+# pokemon-colorscripts (git repo)                      # display pokemon sprites
+# python-pokego-bin (varies)                           # display pokemon sprites
+# zsh-theme-powerlevel10k (git repo)                   # Powerlevel10k theme
+bat                                                    # enhanced version of cat
+eza                                                    # file lister for zsh/bash
+duf                                                    # prettier version of df
+
+# --------------------------------------------------- // Shell Enhancement - fish
+# (same tools as zsh, installed once)
+# bat                                                  # (already listed above)
+# eza                                                  # (already listed above)
+# duf                                                  # (already listed above)
+
+# ================================================
+# Notes for openSUSE:
+# ================================================
+# 1. Spotify is typically installed via Flatpak:
+#    flatpak install flathub com.spotify.Client
+#
+# 2. Some packages may need to be built from source or installed via:
+#    - npm (Node.js packages): spicetify-cli, etc.
+#    - pip (Python packages): python311-requests, etc.
+#    - AUR equivalents don't apply; use OBS if available
+#
+# 3. Gaming packages may require additional setup:
+#    - Proton/Wine for game compatibility
+#    - GPU drivers (nvidia-driver or amdgpu)
+#    - Steam runtime libraries
+#
+# 4. Optional shell plugins should be installed via git:
+#    git clone https://github.com/zsh-users/... ~/.local/share/zsh/
+#
+# 5. Comments marked with # are packages that may not be available
+#    in openSUSE repos and should be checked before installation.

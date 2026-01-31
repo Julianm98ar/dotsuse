@@ -1,0 +1,82 @@
+# ================================================
+# HyDE Core Packages - openSUSE Tumbleweed
+# ================================================
+# Format: package_name  # comment
+# For openSUSE, packages may differ from Arch naming
+
+# --------------------------------------------------- // System
+uwsm                                                   # A standalone Wayland session manager
+pipewire                                               # audio/video server
+pipewire-alsa                                          # pipewire alsa client
+pipewire-jack                                          # pipewire jack client
+pipewire-pulseaudio                                    # pipewire pulseaudio client (openSUSE naming)
+gstreamer-plugin-pipewire                              # pipewire gstreamer client
+wireplumber                                            # pipewire session manager
+pavucontrol                                            # pulseaudio volume control
+pamixer                                                # pulseaudio cli mixer
+NetworkManager                                         # network manager
+NetworkManager-applet                                  # network manager system tray utility
+bluez                                                  # bluetooth protocol stack
+blueman                                                # bluetooth manager gui
+brightnessctl                                          # screen brightness control
+playerctl                                              # media controls
+udiskie                                                # manage removable media
+
+# --------------------------------------------------- // Display Manager
+sddm                                                   # display manager for KDE plasma
+libQt5QuickControls2-5                                 # for sddm theme ui elements
+libqt5-qtgraphicaleffects5                             # for sddm theme effects (openSUSE naming)
+
+# --------------------------------------------------- // Window Manager
+hyprland                                               # wlroots-based wayland compositor
+dunst                                                  # notification daemon
+rofi                                                   # application launcher
+waybar                                                 # system bar
+swww                                                   # wallpaper
+hyprlock                                               # lock screen
+wlogout                                                # logout menu
+grim                                                   # screenshot tool
+hyprpicker                                             # color picker
+slurp                                                  # region select for screenshot/screenshare
+cliphist                                               # clipboard manager
+wl-clipboard                                           # Keep Wayland clipboard even after programs close
+hyprsunset                                             # blue light filter
+
+# --------------------------------------------------- // Dependencies
+polkit-gnome                                           # authentication agent
+xdg-desktop-portal-hyprland                            # xdg desktop portal for hyprland
+xdg-desktop-portal-gtk                                 # file picker and dbus integration
+xdg-user-dirs                                          # Manage user directories like ~/Desktop and ~/Music
+parallel                                               # for parallel processing (openSUSE: GNU parallel)
+jq                                                     # for json processing
+ImageMagick                                            # for image processing (openSUSE: ImageMagick)
+libqt5-qtimageformats                                  # for dolphin image thumbnails
+ffmpegthumbs                                           # for dolphin video thumbnails
+kde-cli-tools                                          # for dolphin file type defaults (openSUSE: kde-cli-tools)
+libnotify                                              # for notifications
+noto-coloremoji-fonts                                  # emoji font (openSUSE: noto-coloremoji-fonts)
+
+# --------------------------------------------------- // Theming
+nwg-look                                               # gtk configuration tool
+qt5ct                                                  # qt5 configuration tool
+qt6ct                                                  # qt6 configuration tool
+libKvantum5                                            # svg based qt5 theme engine (openSUSE naming)
+libKvantum                                             # svg based qt6 theme engine (openSUSE naming)
+libqt5-qtwayland                                       # wayland support in qt5
+libqt6-qtwayland                                       # wayland support in qt6 (openSUSE naming)
+
+# --------------------------------------------------- // Applications
+MozillaFirefox                                         # browser
+kitty                                                  # terminal
+dolphin                                                # kde file manager
+ark                                                    # kde file archiver
+unzip                                                  # extracting zip files
+nwg-displays                                           # monitor management utility
+fzf                                                    # Command-line fuzzy finder
+
+# --------------------------------------------------- // Shell
+starship                                               # customizable shell prompt written in Rust
+fastfetch                                              # system information fetch tool
+
+# --------------------------------------------------- // HyDE
+hypridle                                               # idle daemon

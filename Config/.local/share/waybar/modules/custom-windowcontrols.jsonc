@@ -1,0 +1,13 @@
+{
+  "custom/windowcontrols": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "hyde-shell windowcontrols --display",
+    "on-click": "hyde-shell windowcontrols --minimize",
+    "on-click-middle": "hyde-shell windowcontrols --maximize",
+    "on-click-right": "hyde-shell windowcontrols --close",
+    "tooltip": true,
+    "rotate": 0
+  }
+}
